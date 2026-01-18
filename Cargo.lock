@@ -371,8 +371,8 @@ checksum = "497c00e0fd83a72a79a39fcbd8e3e2f055d6f6c7e025f3b3d91f4f8e76527fb8"
 dependencies = [
  "async-task",
  "concurrent-queue",
- "fastrand",
- "futures-lite",
+ "fastrand 2.3.0",
+ "futures-lite 2.6.1",
  "pin-project-lite",
  "slab",
 ]
@@ -385,7 +385,7 @@ checksum = "8034a681df4aed8b8edbd7fbe472401ecf009251c8b40556b304567052e294c5"
 dependencies = [
  "async-lock",
  "blocking",
- "futures-lite",
+ "futures-lite 2.6.1",
 ]
 
 [[package]]
@@ -399,7 +399,7 @@ dependencies = [
  "async-io",
  "async-lock",
  "blocking",
- "futures-lite",
+ "futures-lite 2.6.1",
  "once_cell",
 ]
 
@@ -413,7 +413,7 @@ dependencies = [
  "cfg-if",
  "concurrent-queue",
  "futures-io",
- "futures-lite",
+ "futures-lite 2.6.1",
  "parking",
  "polling",
  "rustix 1.1.2",
@@ -446,7 +446,7 @@ dependencies = [
  "futures-channel",
  "futures-core",
  "futures-io",
- "futures-lite",
+ "futures-lite 2.6.1",
  "gloo-timers 0.3.0",
  "kv-log-macro",
  "log",
@@ -645,7 +645,7 @@ version = "1.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "592277618714fbcecda9a02ba7a8781f319d26532a88553bbacc77ba5d2b3a8d"
 dependencies = [
- "fastrand",
+ "fastrand 2.3.0",
  "gloo-timers 0.3.0",
  "tokio",
 ]
@@ -797,7 +797,7 @@ dependencies = [
  "downcast-rs",
  "either",
  "futures-io",
- "futures-lite",
+ "futures-lite 2.6.1",
  "js-sys",
  "parking_lot",
  "ron",
@@ -1057,7 +1057,7 @@ dependencies = [
  "bevy_utils",
  "bitflags 2.9.4",
  "bytemuck",
- "futures-lite",
+ "futures-lite 2.6.1",
  "guillotiere",
  "half",
  "image",
@@ -1564,7 +1564,7 @@ dependencies = [
  "concurrent-queue",
  "crossbeam-queue",
  "derive_more 2.0.1",
- "futures-lite",
+ "futures-lite 2.6.1",
  "heapless",
  "pin-project",
 ]
@@ -1862,7 +1862,7 @@ dependencies = [
  "async-channel 2.5.0",
  "async-task",
  "futures-io",
- "futures-lite",
+ "futures-lite 2.6.1",
  "piper",
 ]
 
@@ -2937,6 +2937,15 @@ checksum = "2acce4a10f12dc2fb14a218589d4f1f62ef011b2d0cc4b3cb1bba8e94da14649"
 
 [[package]]
 name = "fastrand"
+version = "1.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e51093e27b0797c359783294ca4f0a911c270184cb10f85783b118614a1501be"
+dependencies = [
+ "instant",
+]
+
+[[package]]
+name = "fastrand"
 version = "2.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "37909eebbb50d72f9059c3b6d82c0463f2ff062c9e95845c43a6c9c0355411be"
@@ -3121,7 +3130,7 @@ dependencies = [
  "fixedbitset",
  "futures-buffered",
  "futures-core",
- "futures-lite",
+ "futures-lite 2.6.1",
  "pin-project",
  "slab",
  "smallvec",
@@ -3152,11 +3161,26 @@ checksum = "9e5c1b78ca4aae1ac06c48a526a655760685149f0d465d21f37abfe57ce075c6"
 
 [[package]]
 name = "futures-lite"
+version = "1.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "49a9d51ce47660b1e808d3c990b4709f2f415d928835a17dfd16991515c46bce"
+dependencies = [
+ "fastrand 1.9.0",
+ "futures-core",
+ "futures-io",
+ "memchr",
+ "parking",
+ "pin-project-lite",
+ "waker-fn",
+]
+
+[[package]]
+name = "futures-lite"
 version = "2.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f78e10609fe0e0b3f4157ffab1876319b5b0db102a2c60dc4626306dc46b44ad"
 dependencies = [
- "fastrand",
+ "fastrand 2.3.0",
  "futures-core",
  "futures-io",
  "parking",
@@ -4148,7 +4172,7 @@ dependencies = [
  "derive_more 1.0.0",
  "ed25519-dalek",
  "futures-concurrency",
- "futures-lite",
+ "futures-lite 2.6.1",
  "futures-util",
  "hex",
  "indexmap",
@@ -4550,6 +4574,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "matchbox_server_wasm"
+version = "0.13.0"
+dependencies = [
+ "matchbox_protocol",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.17",
+ "tokio",
+ "tokio-tungstenite",
+ "uuid",
+ "wstd",
+]
+
+[[package]]
 name = "matchbox_signaling"
 version = "0.13.0"
 dependencies = [
@@ -4743,7 +4781,7 @@ dependencies = [
  "cfg_aliases",
  "derive_more 1.0.0",
  "futures-buffered",
- "futures-lite",
+ "futures-lite 2.6.1",
  "futures-util",
  "js-sys",
  "pin-project",
@@ -4764,7 +4802,7 @@ dependencies = [
  "cfg_aliases",
  "derive_more 1.0.0",
  "futures-buffered",
- "futures-lite",
+ "futures-lite 2.6.1",
  "futures-util",
  "js-sys",
  "pin-project",
@@ -5575,7 +5613,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "96c8c490f422ef9a4efd2cb5b42b76c8613d7e7dfc1caf667b8a3350a5acc066"
 dependencies = [
  "atomic-waker",
- "fastrand",
+ "fastrand 2.3.0",
  "futures-io",
 ]
 
@@ -5593,7 +5631,7 @@ dependencies = [
  "dyn-clone",
  "ed25519-dalek",
  "futures-buffered",
- "futures-lite",
+ "futures-lite 2.6.1",
  "getrandom 0.2.16",
  "log",
  "lru 0.13.0",
@@ -5742,7 +5780,7 @@ dependencies = [
  "base64 0.22.1",
  "bytes",
  "derive_more 1.0.0",
- "futures-lite",
+ "futures-lite 2.6.1",
  "futures-util",
  "hyper-util",
  "igd-next",
@@ -7781,6 +7819,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "waker-fn"
+version = "1.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "317211a0dc0ceedd78fb2ca9a44aed3d7b9b26f81870d485c07122b4350673b7"
+
+[[package]]
 name = "walkdir"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8939,6 +8983,9 @@ name = "wit-bindgen"
 version = "0.46.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f17a85883d4e6d00e8a97c586de764dabcc06133f7f1d55dce5cdc070ad7fe59"
+dependencies = [
+ "bitflags 2.9.4",
+]
 
 [[package]]
 name = "wmi"
@@ -8978,6 +9025,38 @@ dependencies = [
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
+]
+
+[[package]]
+name = "wstd"
+version = "0.6.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f743611ee524c2416bc1513157eb3235ca24f4270d1b3ab19f93676fcff21398"
+dependencies = [
+ "anyhow",
+ "async-task",
+ "bytes",
+ "futures-lite 1.13.0",
+ "http",
+ "http-body",
+ "http-body-util",
+ "itoa",
+ "pin-project-lite",
+ "serde",
+ "serde_json",
+ "slab",
+ "wasip2",
+ "wstd-macro",
+]
+
+[[package]]
+name = "wstd-macro"
+version = "0.6.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b5db5d13d6e3f2b180b04be8ff8d5c35b37d5621d3e2d0aa85ab99adf817a780"
+dependencies = [
+ "quote",
+ "syn 2.0.106",
 ]
 
 [[package]]

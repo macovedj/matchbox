@@ -1,0 +1,45 @@
+[package]
+name = "matchbox_server_wasm"
+version = "0.13.0"
+authors = ["Johan Helsing <johanhelsing@gmail.com>"]
+edition = "2024"
+description = "A WASI-compatible signaling server for WebRTC peer-to-peer networking using wstd"
+license = "MIT OR Apache-2.0"
+keywords = ["gamedev", "webrtc", "peer-to-peer", "networking", "wasm", "wasi"]
+categories = [
+  "network-programming",
+  "game-development",
+  "wasm",
+  "web-programming",
+]
+repository = "https://github.com/johanhelsing/matchbox"
+homepage = "https://github.com/johanhelsing/matchbox"
+readme = "README.md"
+
+[lib]
+crate-type = ["rlib"]
+
+[[bin]]
+name = "matchbox-signaling-wasm"
+path = "src/main.rs"
+
+[dependencies]
+matchbox_protocol = { version = "0.13", path = "../matchbox_protocol", features = ["json"] }
+
+# WASI standard library
+wstd = "0.6"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# UUID for peer IDs
+uuid = { version = "1.4", features = ["serde", "v4"] }
+
+# Error handling
+thiserror = "2.0"
+
+[dev-dependencies]
+# For local testing with native target
+tokio = { version = "1.32", features = ["macros", "rt-multi-thread"] }
+tokio-tungstenite = "0.28"
